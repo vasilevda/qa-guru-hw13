@@ -20,7 +20,6 @@ public class BaseState {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://severstal.com";
         Configuration.browser = System.getProperty("browser");
-        Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.remote = cfg.hostname();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
