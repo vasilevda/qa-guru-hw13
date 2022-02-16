@@ -95,12 +95,6 @@ Report*</strong></code>, кликнув по которому, откроетс�
   <img src="images/Allure Report steps.png" alt="Allure Report" width="900">
 </p>
 
-### :pushpin: Тест-кейсы
-
-<p align="center">
-  <img src="images/Test cases.png" alt="test cases" width="900">
-</p>
-
 ## <img width="4%" title="Selenoid" src="images/selenoid-logo.svg"> Пример запуска теста в Selenoid
 
 <p align="center">
