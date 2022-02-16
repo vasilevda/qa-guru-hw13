@@ -111,6 +111,5 @@ Report*</strong></code>, кликнув по которому, откроетс�
 
 <p align="center">
   <img src="images/tlgrm.png" alt="Telegram" width="440">
-  <img src="images/tlgrm_.png" alt="Telegram" width="390">
 </p>
 :wink:
