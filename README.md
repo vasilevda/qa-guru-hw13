@@ -104,12 +104,6 @@ Report*</strong></code>, кликнув по которому, откроетс�
   <img src="images/Test cases.png" alt="test cases" width="900">
 </p>
 
-## <img width="4%" title="Jira" src="images/jira-logo.svg"> Интеграция с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-269)
-
-<p align="center">
-  <img src="images/allureTestOPS jira.png" alt="jira" width="1000">
-</p>
-
 ## <img width="4%" title="Selenoid" src="images/selenoid-logo.svg"> Пример запуска теста в Selenoid
 
 <p align="center">
