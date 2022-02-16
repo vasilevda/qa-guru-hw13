@@ -104,6 +104,6 @@ Report*</strong></code>, кликнув по которому, откроетс�
 ## <img width="4%" title="Telegram" src="images/Telegram.svg"> Уведомления в Telegram
 
 <p align="center">
-  <img src="images/tlgrm.png" alt="Telegram" width="440">
+  <a href="http://www.pidor.com/"><img src="images/tlgrm.png" alt="Telegram" width="440"></a>
 </p>
 :wink:
