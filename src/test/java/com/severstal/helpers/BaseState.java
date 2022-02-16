@@ -18,7 +18,6 @@ public class BaseState {
         ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://severstal.com";
         Configuration.browser = System.getProperty("browser");
         Configuration.remote = cfg.hostname();
 
@@ -36,5 +35,4 @@ public class BaseState {
         Attachments.addVideo();
         closeWebDriver();
     }
-
 }
