@@ -1,7 +1,6 @@
 package com.severstal;
 
-import com.severstal.helpers.BaseState;
-import org.junit.jupiter.api.Disabled;
+import com.severstal.helpers.DriverConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,14 +13,16 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class SeverstalSiteTest extends BaseState {
+public class SeverstalSiteTest extends DriverConfig {
 
     @Test
     @DisplayName("Проверка заголовка страницы")
     void testTitle() {
-        step("Открыть страницу:", ()-> open("https://www.severstal.com"));
+        step("Открыть страницу:", () -> {
+            open("https://www.severstal.com");
+        });
 
-        step("Проверить title открытой страницы:", ()-> {
+        step("Проверить title открытой страницы:", () -> {
             $("title").shouldHave(attribute("text", "Северсталь"));
         });
     }
@@ -29,15 +30,19 @@ public class SeverstalSiteTest extends BaseState {
     @Test
     @DisplayName("Проверить страницу 'О компании'")
     void testAbout() {
-        step("Открыть страницу:", ()-> open("https://www.severstal.com"));
+        step("Открыть страницу:", () -> {
+            open("https://www.severstal.com");
+        });
 
-        step("Перейти на страницу:", ()-> $("[href='/rus/about/']").click());
+        step("Перейти на страницу:", () -> {
+            $("[href='/rus/about/']").click();
+        });
 
-        step("Проверить title открытой страницы:", ()-> {
+        step("Проверить title открытой страницы:", () -> {
             $("title").shouldHave(attribute("text", "Северсталь - О компании"));
         });
 
-        step("Проверить текст в блоке 'intro':", ()-> {
+        step("Проверить текст в блоке 'intro':", () -> {
             $(".intro").shouldBe(text("ПАО «Северсталь» — это вертикально интегрированная горнодобывающая и металлургическая " +
                     "компания с основными активами в России и небольшим количеством предприятий за рубежом."));
         });
@@ -46,11 +51,15 @@ public class SeverstalSiteTest extends BaseState {
     @Test
     @DisplayName("Проверить страницу 'Контакты'")
     void testContacts() {
-        step("Открыть страницу:", ()-> open("https://www.severstal.com"));
+        step("Открыть страницу:", () -> {
+            open("https://www.severstal.com");
+        });
 
-        step("Перейти на страницу:", ()-> $("[href='/rus/global_contacts/']").click());
+        step("Перейти на страницу:", () -> {
+            $("[href='/rus/global_contacts/']").click();
+        });
 
-        step("Проверить текст в блоке 'Головной офис ПАО Северсталь':", ()-> {
+        step("Проверить текст в блоке 'Головной офис ПАО Северсталь':", () -> {
             $(".info").shouldHave(
                     text("ул. Клары Цеткин, 2, Москва, Россия, 127299"),
                     text("+7 (495) 926 77 66"),
@@ -66,17 +75,18 @@ public class SeverstalSiteTest extends BaseState {
 
     @ValueSource(strings = {
             "Металлопрокат c покрытием",
-            "Облигации",
-            "\n"})
+            "Облигации"})
     @ParameterizedTest(name = "Проверить поиск по ключевым словам - {0}")
     void testSearch(String value) {
-        step("Открыть страницу:", ()-> open("https://www.severstal.com"));
+        step("Открыть страницу:", () -> {
+            open("https://www.severstal.com");
+        });
 
-        step("Ввести искомое значение:", ()-> {
+        step("Ввести искомое значение:", () -> {
             $("[name='search']").setValue(value).pressEnter();
         });
 
-        step("Проверить кол-во совпаденмй:", ()-> {
+        step("Проверить кол-во совпаденмй:", () -> {
             $(".list .value").shouldNotBe(text("0"));
         });
     }
@@ -88,20 +98,21 @@ public class SeverstalSiteTest extends BaseState {
             "Воркутауголь, Воркутауголь – крупнейшее угледобывающее предприятие России"})
     @ParameterizedTest(name = "Перейти на соответсвующую страницу - {0} \\ {1}")
     void testAllLink(String link, String title) {
-        step("Открыть страницу:", ()-> open("https://www.severstal.com"));
+        step("Открыть страницу:", () -> {
+            open("https://www.severstal.com");
+        });
 
-        step("Нажать по кнопке 'Все сайты':", ()-> $(byText("Все сайты")).click());
+        step("Нажать по кнопке 'Все сайты':", () -> {
+            $(byText("Все сайты")).click();
+        });
 
-        step("Нажать на соответствующую ссылку:", ()-> $(byText(link)).click());
+        step("Нажать на соответствующую ссылку:", () -> {
+            $(byText(link)).click();
+        });
 
-        step("Проверить кол-во совпаденмй:", ()-> {
+        step("Проверить кол-во совпаденмй:", () -> {
             switchTo().window(1);
             $("title").shouldHave(attribute("text", title));
         });
     }
-
-    @Test
-    @Disabled("Данные для теста не актуальны")
-    @DisplayName("Проверка данныъ заказчика")
-    void testSimple() { }
 }

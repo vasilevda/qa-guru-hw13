@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class BaseState {
+public class DriverConfig {
 
     @BeforeAll
     public static void beforeAll() {
